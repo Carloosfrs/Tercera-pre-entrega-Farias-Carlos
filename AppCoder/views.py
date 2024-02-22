@@ -1,30 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from AppCoder.forms import PedidoFormulario
-
+from .models import Pedido
 
 # Create your views here.
 def inicio(request):
 
-      return render(request, "AppCoder/index.html")
+      return render(request, "AppCoder/Inicio.html")
 
 
 def pedido(request):
 
-      return HttpResponse("vista Pedido")
+      return render(request, "AppCoder/Pedido.html")
 
 
 def Cliente(request):
 
-      return HttpResponse("vista Cliente")
+      return render(request, "AppCoder/Cliente.html")
 
 def Vendedor(request):
 
-      return HttpResponse("vista Vendedor")
+      return render(request, "AppCoder/Vendedor.html")
 
 def Carrito (request):
 
-      return HttpResponse("Vista Carrito")
+      return render(request, "AppCoder/Carrito.html")
 
 def pedidoFormulario(request):
  
@@ -35,8 +35,8 @@ def pedidoFormulario(request):
  
             if miFormulario.is_valid:
                   informacion = miFormulario.cleaned_data
-                  Pedido = pedido(nombre=informacion["nombre"], numPedido=informacion["pedido"])
-                  Pedido.save()
+                  pedido = Pedido (nombre=informacion["nombre"], numPedido=informacion["pedido"])
+                  pedido.save()
                   return render(request, "AppCoder/inicio.html")
       else:
             miFormulario = PedidoFormulario()
