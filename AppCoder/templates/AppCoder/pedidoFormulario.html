@@ -6,12 +6,13 @@
     <title>Formulario - Agregar pedido</title>
 </head>
 <body>
-    <form action="/pedidoFormulario/" method="post">{% csrf_token %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
 
-        <p>Pedido de: <input type="text" name="pedido"></p>
-        <p>Codigo: <input type="number" name="codigo"></p>
-
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Guardar">
     </form>
 </body>
 </html>
