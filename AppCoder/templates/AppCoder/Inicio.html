@@ -5,36 +5,8 @@
 {% block contenidoQueCambia %}
 <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
 <h1>Bienvenidos!</h1>
-  
-
-<h3>Podes buscar un pedido:</h3>
-
-<form action="/AppCoder/buscar/" method="GET">
-
-    <input type="number" name="pedido" id="pedido">
-
-    <input type="submit" value="Buscar">
 
 
-
-
-</form>
-
-
-
-{% if Pedido %}
-
-<p>Estamos buscando el: {{numPedido}}</p>
-
-<ul>
-{% for pedido in pedidos %}
-    <li> {{Pedido.nombre}} </li>
-    <li> {{Pedido.numPedido}} </li>
-{% endfor %}
-
-</ul>
-
-{% endif %}
 
 
 {% endblock %}

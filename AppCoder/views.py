@@ -71,18 +71,20 @@ def vendedorFormulario(request):
  
 
 
-
 def buscar(request):
+      
       if request.method == "POST":
             miFormulario = Buscar(request.POST)
             if miFormulario.is_valid():
                   info = miFormulario.cleaned_data
                   print(info["pedido"])
                   pedido = Pedido.objects.filter(numPedido__icontains=info["pedido"])
-                  render(request, "AppCoder/inicio.html", {"Pedidos":pedido})  
+                  print(pedido)
+                  return render(request, "AppCoder/buscar.html", {"pedidos":pedido})  
       else:
-            miFormulario = Buscar()    
+            miFormulario = Buscar()  
       
-      return render(request, "AppCoder/Inicio.html", {"formulario": miFormulario})     
+            return render(request, "AppCoder/buscar.html", {"formulario": miFormulario})     
+            
             
             

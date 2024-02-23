@@ -1,0 +1,38 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+
+
+<h3>Podes buscar un pedido:</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    {{formulario.as_p}}
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+
+
+{% if pedidos %}
+
+<p>Estamos buscando el: {{numPedido}}</p>
+
+<ul>
+{% for pedido in pedidos %}
+    <li> {{pedido.nombre}} </li>
+    <li> {{pedido.numPedido}} </li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No hay</p>
+
+{% endif %}
+
+
+{% endblock %}
