@@ -3,41 +3,38 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    <h1>Bienvenidos!</h1>
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+<h1>Este es el título del Inicio que cambio</h1>
   
 
-    <h3>Podes buscar un pedido aqui:</h3>
+<h3>Podes buscar un pedido:</h3>
 
-    <form action="" method="POST">
-        {% csrf_token %}
-        <table>
-            {{ miFormulario.as_table }}
-        </table>
+<form action="/AppCoder/buscar/" method="GET">
 
-        <input type="submit" value="Buscar">
-    </form>
+    <input type="number" name="pedido" id="pedido">
+
+    <input type="submit" value="Buscar">
 
 
 
-    <ul>
-	{% for pedido in Pedidos %}
-		<li> {{pedido.nombre}} </li>
-		<li> {{pedido.numPedido}} </li>
-	{% endfor %}
 
-    </ul>
-</body>
-</html>
+</form>
 
-    
+
+
+{% if Pedido %}
+
+<p>Estamos buscando el: {{numPedido}}</p>
+
+<ul>
+{% for curso in cursos %}
+    <li> {{Pedido.nombre}} </li>
+    <li> {{Pedido.numPedido}} </li>
+{% endfor %}
+
+</ul>
+
+{% endif %}
+
 
 {% endblock %}
