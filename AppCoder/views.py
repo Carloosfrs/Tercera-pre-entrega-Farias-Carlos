@@ -68,12 +68,6 @@ def vendedorFormulario(request):
             miFormulario= VendedorFormulario() #Formulario vacio para construir el html
 
       return render(request, "AppCoder/vendedorFormulario.html", {"miFormulario":miFormulario})
-
-
-
-def busquedaPedido(request):
-      return render ("AppCoder/vendedorPedido.html")
-
  
 
 
@@ -89,6 +83,6 @@ def buscar(request):
       else:
             miFormulario = Buscar()    
       
-      return render(request, "AppCoder/Inicio.html", {"formulario: miFormulario"})     
+      return render(request, "AppCoder/Inicio.html", {"formulario": miFormulario})     
             
             
