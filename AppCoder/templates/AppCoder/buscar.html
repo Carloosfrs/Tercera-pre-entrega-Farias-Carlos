@@ -21,16 +21,16 @@
 
 {% if pedidos %}
 
-<p>Estamos buscando el: {{numPedido}}</p>
+    <p>Estamos buscando el: {{numPedido}}</p>
 
-<ul>
-{% for pedido in pedidos %}
-    <li> {{pedido.nombre}} </li>
-    <li> {{pedido.numPedido}} </li>
-{% endfor %}
+    <ul>
+    {% for pedido in pedidos %}
+        <li> {{pedido.nombre}} </li>
+        <li> {{pedido.numPedido}} </li>
+    {% endfor %}
 </ul>
 {% else %}
-<p>No hay</p>
+    <p>No hay</p>
 
 {% endif %}
 
