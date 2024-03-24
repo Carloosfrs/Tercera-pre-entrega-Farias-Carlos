@@ -5,9 +5,18 @@
 {% block contenidoQueCambia %}
 
 
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    <h1>Clientes</h1>
-    <p>Acá va la info de los Clientes</p>
+<h3>Registrate aqui como cliente:</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit" value="Guardar">
+    </form>
 
 
 {% endblock %}

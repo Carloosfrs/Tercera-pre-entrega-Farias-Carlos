@@ -1,0 +1,38 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Detalle</title>
+</head>
+<body>
+<div style="padding: 2rem;">
+
+   
+    <h1>Tema general: <i>{{ blog.tema }}</i></h1>
+    <h2>Titulo: <i>{{ blog.titulo }}</i></h2>
+    <p>{{ blog.descripcion }}</p>
+    {% if blog.imagen %}
+    <img src="{{ blog.imagen.url }}" alt="Imagen del blog">
+    {% else %}
+    <p>No hay imagen disponible para este blog.</p>
+    {% endif %}
+
+    <p>Fecha: {{ blog.fecha }}</p>
+
+    <p>
+        <a href="{% url 'Explorar' %}">Regresar</a>
+    </p>
+
+</div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+<div style="padding: 2rem;"> 
+
+<h3>Podes buscar blogs:</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    {{formulario.as_p}}
+
+    <input class="btn btn-outline-secondary type="submit" value="Buscar">
+
+</form>
+
+
+
+{% if temas %}
+
+    <p>Blogs encontrados: {{tema}}</p>
+
+<ul>
+    {% for tema in temas %}
+        <li> {{tema.tema}} | {{tema.titulo}} </li>
+        
+    {% endfor %}
+</ul>
+
+
+{% endif %}
+</div>
+
+{% endblock %}

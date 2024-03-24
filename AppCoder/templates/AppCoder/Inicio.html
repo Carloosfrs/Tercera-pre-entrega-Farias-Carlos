@@ -4,8 +4,21 @@
 
 {% block contenidoQueCambia %}
 <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-<h1>Bienvenidos!</h1>
+<div style="display: flex; align-items: center; justify-content: center;">
+<ul>   
 
+{% if not request.user.is_authenticated %}
+<h1>Bienvenidos!</h1>
+{% endif %}
+
+{% if request.user.is_authenticated %}
+                
+<h1> Hola, {{user.username}}!</h1>
+{% endif %}
+
+<h3>Blog realizado por todos para todos</h3>
+</ul> 
+</div>
 
 
 

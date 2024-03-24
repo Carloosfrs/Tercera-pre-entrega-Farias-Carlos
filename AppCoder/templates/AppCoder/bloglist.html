@@ -1,0 +1,42 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div style="padding: 2rem;">  
+<h1> Explorador</h1>
+
+<ul>
+    {% for tema in object_list %}
+        <li>
+            <p>Titulo: {{ tema.titulo }}</p>
+            <p>
+                <a class="btn btn-outline-secondary" href="{% url 'Detail' tema.id %}">Ver</a>
+                {% if user.is_authenticated and user.is_superuser %}
+                <a class="btn btn-outline-secondary" href="{% url 'Edit' tema.id %}">Editar</a>
+                
+                <a class="btn btn-outline-secondary" href="{% url 'Delete' tema.id %}">Borrar</a>
+                {% endif %}
+                    
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+
+<a class="btn btn-outline-secondary" href="{% url 'New' %}" role="button">Crea el tuyo</a>
+
+</div>
+
+
+</body>
+</html>
+{% endblock %}
